@@ -48,18 +48,19 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    for (let i=0; i<5; i++) {
+    if (playerScore>0) {
+        console.log("Player 1 wins the game!");
+    } else {
+        console.log("Computer wins the game!");
+    }
+    while (playerScore < 5 || computerScore < 5) {
         computerSelection = getComputerChoice();
         let roundResult = parseInt(playRound(playerSelection, computerSelection));
         scoreTotal(roundResult);
         console.log(`Player score: ${playerScore}`);
         console.log(`Computer score: ${computerScore}`);
     }
-    if (playerScore>0) {
-        console.log("Player 1 wins the game!");
-    } else {
-        console.log("Computer wins the game!");
-    }
+    
     
 }
 const playerSelection = "rock";
